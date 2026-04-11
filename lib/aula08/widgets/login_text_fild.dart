@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_teste/classes/login_details.dart';
+import 'package:flutter_teste/aula08/classes/login_details.dart';
 
 class LoginTextFild extends StatefulWidget {
   const LoginTextFild({

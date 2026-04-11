@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_teste/classes/login_details.dart';
-import 'package:flutter_teste/widgets/login_text_fild.dart';
+import 'package:flutter_teste/aula08/aula08.dart';
+import 'package:flutter_teste/aula08/classes/login_details.dart';
+import 'package:flutter_teste/aula08/widgets/login_text_fild.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Aula08(),
     );
   }
 }
@@ -47,6 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: 300,
+        alignment: .center,
         child: Center(
           child: LoginTextFild(
             controller: _loginController,
