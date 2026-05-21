@@ -1,0 +1,34 @@
+import 'dart:collection';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_teste/aula12/model/produto.dart';
+
+class CarrinhoModel extends ChangeNotifier {
+  final List<Produto> _lista = [];
+
+  UnmodifiableListView<Produto> get produtos => UnmodifiableListView(_lista);
+
+  double get valorTotal {
+    double vltotal = 0;
+
+    for (Produto p in _lista) {
+      vltotal += p.preco;
+    }
+
+    return vltotal;
+  }
+
+  int get numProdutos => _lista.length;
+
+  void adicionar(Produto p) {
+    _lista.add(p);
+    notifyListeners();
+  }
+
+  void remover(Produto p) {
+    _lista.removeWhere((prod) => prod.id == p.id);
+    notifyListeners();
+  }
+
+  bool adicionado(Produto p) => _lista.any((prod) => prod.id == p.id);
+}

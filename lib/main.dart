@@ -4,9 +4,18 @@ import 'package:flutter_teste/aula08/classes/login_details.dart';
 import 'package:flutter_teste/aula08/widgets/login_text_fild.dart';
 import 'package:flutter_teste/aula09/aula09.dart';
 import 'package:flutter_teste/aula10/aula10.dart';
+import 'package:flutter_teste/aula12/model/carrinho_model.dart';
+import 'package:flutter_teste/aula12/view/cardapio_view.dart';
+import 'package:flutter_teste/aula12/view/pedido_view.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CarrinhoModel(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -17,11 +26,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      initialRoute: "/",
+      initialRoute: "/aula12",
       routes: {
         "/": (context) => Aula08(),
         "/aula09": (context) => Aula09(),
         "/aula10": (context) => Aula10(),
+        '/aula12': (context) => CardapioView(),
+        "/aula12_pedidoview": (context) => PedidoView(),
       },
     );
   }
